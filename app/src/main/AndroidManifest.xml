@@ -12,7 +12,7 @@
 
         <activity
             android:name=".FirstActivity"
-            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,11 +21,12 @@
         </activity>
 
         <activity
+            android:name=".FullViewPagerActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
-
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

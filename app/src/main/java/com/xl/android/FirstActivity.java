@@ -1,13 +1,12 @@
 package com.xl.android;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.support.v7.app.AppCompatActivity;
 
-public class FirstActivity extends Activity {
+public class FirstActivity extends AppCompatActivity {
 
     private static final int TIME = 2000, GO_HOME = 1000, Go_DAOHANG = 1001;
     private boolean isFirstIn;
@@ -26,8 +25,7 @@ public class FirstActivity extends Activity {
                     break;
 
                 case Go_DAOHANG:
-                    //startActivity(new Intent(FirstActivity.this,FirstViewPager.class));
-                    Toast.makeText(FirstActivity.this,"暂无界面!",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(FirstActivity.this,FullViewPagerActivity.class));
                     finish();
                     break;
             }
