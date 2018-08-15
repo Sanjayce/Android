@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class FirstActivity extends Activity {
 
     private static final int TIME = 2000, GO_HOME = 1000, Go_DAOHANG = 1001;
-    private boolean isFirstIn = false;
+    private boolean isFirstIn;
 
 
     /**
@@ -45,7 +45,7 @@ public class FirstActivity extends Activity {
     private void init() {
         SharedPreferences preferences = getSharedPreferences("mode",MODE_PRIVATE);
         isFirstIn = preferences.getBoolean("isFirstIn",false);
-        if (!isFirstIn){
+        if (isFirstIn){
             handler.sendEmptyMessageDelayed(GO_HOME,TIME);
         }else {
             SharedPreferences.Editor editor =  preferences.edit();
