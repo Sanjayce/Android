@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".FirstActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -22,11 +21,26 @@
 
         <activity
             android:name=".FullViewPagerActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".Activitys"/>
+        <activity android:name=".ScondeActivity" />
+        <!-- 隐士加载页面 -->
+        -
+        <activity android:name=".ThreeActivity" >
+            -
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.example.activity.intent.ThreeActivity" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

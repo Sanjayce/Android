@@ -26,7 +26,6 @@ public class FullViewPagerActivity extends AppCompatActivity implements ViewPage
 
     private Timer mTimer;
     private TimerTask mTimerTask;
-    private int count = 4;
 
 
     @Override
@@ -68,6 +67,8 @@ public class FullViewPagerActivity extends AppCompatActivity implements ViewPage
     }
 
 
+
+
     private void initSubView() {
         mlist = new ArrayList<>();
 
@@ -89,28 +90,21 @@ public class FullViewPagerActivity extends AppCompatActivity implements ViewPage
     private void timeUI(){
         mTimer = new Timer();
         mTimerTask = new TimerTask() {
-
             @Override
             public void run() {
                 updateUI();
-                count--;
             }
         };
-        mTimer.schedule(mTimerTask,1000);
+        mTimer.schedule(mTimerTask,2000);
     }
 
 
     private void updateUI() {
         runOnUiThread(new Runnable() {
-
             @Override
             public void run() {
-
-                if (count<1){
-                    startActivity(new Intent(FullViewPagerActivity.this, MainActivity.class));
-                    finish();
-                }
-                textView4.setText(count + "");
+                startActivity(new Intent(FullViewPagerActivity.this, MainActivity.class));
+                finish();
             }
         });
     }
