@@ -19,30 +19,38 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.xl.util.ActivityFragment;
+import com.xl.util.BroadcastFragment;
+import com.xl.util.ContentProvderFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private FragmentManager manager;
     private  FragmentTransaction transaction;
-    private Fragment activity;
-    private Button fragment_btn1,fragment_btn2;
+    private Fragment activity,broadcast,contentprovder,servers,view,sensor,network;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Activity");
-
         initView();
-        initFragment();
-
         manager = getFragmentManager();
-        transaction = manager.beginTransaction();
-        transaction.add(R.id.fragment_frame_layout,activity).commit();
+        activity = new ActivityFragment();
+        FragmentTransaction transactions = manager.beginTransaction();
+        transactions.add(R.id.fragment_frame_layout,activity).commit();
     }
 
-    private void initFragment() {
-        activity = new ActivityFragment();
+    private void hideFragment(FragmentTransaction transaction) {
+        if(activity !=null){
+            transaction.hide(activity);
+        }
+        if(broadcast != null){
+            transaction.hide(broadcast);
+        }
+        if(contentprovder!=null){
+            transaction.hide(contentprovder);
+        }
+
     }
 
     private void initView() {
@@ -50,13 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this,
-                drawer,
-                toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
-        );
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, 0, 0);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -99,24 +101,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         int id = item.getItemId();
         transaction = manager.beginTransaction();
+        hideFragment(transaction);
         if (id == R.id.nav_camera) {
-            transaction.show(new ActivityFragment());
             setTitle("Activity");
+            transaction.show(activity);
 
         } else if (id == R.id.nav_gallery) {
-            setTitle("Broadcast");
+            setTitle("BroadcastReceiver");
+            if(broadcast == null){
+                broadcast = new BroadcastFragment();
+                transaction.add(R.id.fragment_frame_layout,broadcast);
+            }else {
+                transaction.show(broadcast);
+            }
+
 
         } else if (id == R.id.nav_slideshow) {
-            setTitle("Content");
+            setTitle("ContentProvder");
+            if(contentprovder == null){
+                contentprovder = new ContentProvderFragment();
+                transaction.add(R.id.fragment_frame_layout,contentprovder);
+            }else {
+                transaction.show(contentprovder);
+            }
+
 
         } else if (id == R.id.nav_manage) {
-            setTitle("Server");
+            setTitle("Servers");
 
         } else if (id == R.id.nav_share) {
             setTitle("View");
 
         } else if (id == R.id.nav_send) {
-            setTitle("Senser");
+            setTitle("Sensor");
+
+        }else if (id == R.id.nav_net) {
+            setTitle("Network");
 
         }
 

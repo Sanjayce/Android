@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <item android:title="四大组件">
+        <menu>
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
             android:title="Activity" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Broadcast" />
+            android:title="Broadcastreceiver" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Content" />
+            android:title="Contentprovder" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
             android:title="Server" />
-    </group>
+        </menu>
+    </item>
 
-    <item android:title="Android for UI">
+    <item android:title="UI与传感器">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
                 android:title="View" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Senser" />
+                android:title="Sensor" />
+        </menu>
+    </item>
+
+    <item android:title="网络通讯">
+        <menu>
+            <item
+                android:id="@+id/nav_net"
+                android:title="Network" />
         </menu>
     </item>
 

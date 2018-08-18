@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:icon="@mipmap/perm_group_bluetooth"
+        android:key="checkbox"
+        android:summaryOff="off"
+        android:summaryOn="on"
+        android:title="Bluetooth" />
+
+    <CheckBoxPreference
+        android:icon="@mipmap/perm_group_bookmarks"
+        android:key="checkbox1"
+        android:summaryOff="off"
+        android:summaryOn="on"
+        android:title="Bookmarks" />
+    <CheckBoxPreference
+        android:icon="@mipmap/perm_group_calendar"
+        android:key="checkbox2"
+        android:summaryOff="off"
+        android:summaryOn="on"
+        android:title="Calendar" />
+    <CheckBoxPreference
+        android:icon="@mipmap/perm_group_camera"
+        android:key="checkbox3"
+        android:summaryOff="off"
+        android:summaryOn="on"
+        android:title="Camera" />
+
+</PreferenceScreen>

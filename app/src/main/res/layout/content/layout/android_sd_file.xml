@@ -2,34 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <EditText
+        android:id="@+id/sd_editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="18sp" />
+        android:ems="10"
+        android:hint="@string/please_edit" >
+    </EditText>
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/sd_but1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="18sp" />
+        android:text="@string/please_write_sd" />
 
-    <TextView
-        android:id="@+id/textView3"
+    <Button
+        android:id="@+id/sd_but2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="18sp" />
+        android:text="@string/please_read_sd" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/sd_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="18sp" />
+        android:text="@string/read_text" />
 
 </LinearLayout>

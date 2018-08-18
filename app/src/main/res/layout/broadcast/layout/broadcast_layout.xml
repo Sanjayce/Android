@@ -4,10 +4,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/broadcast_list_view"
+    <Button
+        android:id="@+id/send"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </ListView>
+        android:layout_height="wrap_content"
+        android:onClick="doClick"
+        android:text="普通广播" />
+
+    <Button
+        android:id="@+id/send2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doClick"
+        android:text="有序广播" />
+
+    <Button
+        android:id="@+id/send3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doClick"
+        android:text="异步广播" />
+    <Button
+        android:id="@+id/send4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doClick"
+        android:text="本地广播" />
 
 </LinearLayout>

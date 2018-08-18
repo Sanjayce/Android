@@ -23,7 +23,7 @@ public class HandlerThreeActivity extends AppCompatActivity {
 
 		super.onCreate(savedInstanceState);
 		mTextView = new TextView(this);
-		mTextView.setText(R.string.app_name);
+		mTextView.setText("");
 		mTextView.setTextSize(18.0f);
 		setContentView(mTextView);
 		setTitle("HandlerThread");

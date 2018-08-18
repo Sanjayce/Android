@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="#ffffff"
-        android:text="@string/text_content"
+        android:text="1"
         android:textSize="64sp" />
 
 </FrameLayout>

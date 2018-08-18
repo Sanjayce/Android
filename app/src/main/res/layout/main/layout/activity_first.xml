@@ -28,7 +28,7 @@
         android:textSize="20sp"
         android:textColor="#ffffff"
         android:layout_marginTop="87dp"
-        android:text="@string/android_studio" />
+        android:text="android studio" />
 
 
 </RelativeLayout>

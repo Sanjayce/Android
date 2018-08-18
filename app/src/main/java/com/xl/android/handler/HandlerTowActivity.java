@@ -49,7 +49,7 @@ public class HandlerTowActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 
 		TextView mTextView = new TextView(this);
-		mTextView.setText(R.string.app_name);
+		mTextView.setText("");
 		setContentView(mTextView);
 		setTitle("Handler");
 		mHandler.sendEmptyMessage(1);//发送消息到主线程

@@ -1,22 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Android</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_full_view_pager">FullViewPagerActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="text_content">1</string>
-    <string name="android_studio">Android Studio</string>
-
-    <string name="but1">show intent no result</string>
-    <string name="but2">show intent have result</string>
-    <string name="but3">System Application</string>
-    <string name="but4">action intent to value</string>
-    <string name="text2">the three activity</string>
-    <string name="back">Back</string>
-    <string name="send_back">SEND BACK</string>
-
+    <string name="sqlites">SQLite</string>
+    <string name="contentvalue">ContentValue</string>
+    <string name="contentprovider1">ContentProvider</string>
+    <string name="android_">AndroidFile</string>
+     <string name="android_s">AndroidSDFile</string>
+     <string name="sharedpreferences">SharedPreferences</string>
+     <string name="please_edit">请输入数据</string>
+     <string name="please_write">写入数据</string>
+     <string name="please_read">读取数据</string>
+     <string name="read_text">显示读取数据</string>
+     <string name="please_write_sd">写入数据到SD卡</string>
+     <string name="please_read_sd">读取SD卡数据</string>
+     <string name="preferenceactivity">PreferenceActivity</string>
+     <string name="sqlite_">SQLiteOpenHleper</string>
 
 </resources>
