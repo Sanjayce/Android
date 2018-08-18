@@ -1,4 +1,4 @@
-package com.xl.android;
+package com.xl.android.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,8 +8,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.xl.android.R;
+
 /**
- *
+ * Activity回传参数
  */
 public class ScondeActivity extends Activity {
 

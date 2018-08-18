@@ -17,6 +17,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layout/activity',
+                            'src/main/res/layout/broadcast',
+                            'src/main/res/layout/content',
+                            'src/main/res/layout/handler',
+                            'src/main/res/layout/main',
+                            'src/main/res/layout/network',
+                            'src/main/res/layout/sensor',
+                            'src/main/res/layout/server',
+                            'src/main/res/layout/view',
+                            'src/main/res/layout',
+                            'src/main/res'
+                    ]
+        }
+    }
 }
 
 dependencies {
@@ -30,3 +48,4 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 }
+

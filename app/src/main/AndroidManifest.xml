@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        //欢迎页
         <activity
             android:name=".FirstActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -19,27 +21,35 @@
             </intent-filter>
         </activity>
 
+        //导航页
         <activity
             android:name=".FullViewPagerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        //主界面
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".Activitys"/>
-        <activity android:name=".ScondeActivity" />
+
+        //activity页面
+        <activity android:name=".activity.Activitys"/>
+        <activity android:name=".activity.ScondeActivity"/>
         <!-- 隐士加载页面 -->
-        -
-        <activity android:name=".ThreeActivity" >
-            -
+        <activity android:name=".activity.ThreeActivity">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="com.example.activity.intent.ThreeActivity" />
             </intent-filter>
         </activity>
 
+        //handler页面
+        <activity android:name=".handler.HandlerActivity" />
+        <activity android:name=".handler.HandlerOneActivity" />
+        <activity android:name=".handler.HandlerTowActivity" />
+        <activity android:name=".handler.HandlerThreeActivity" />
+        <activity android:name=".handler.HandlerFourActivity" />
+        <activity android:name=".handler.HandlerFiveActivity" />
 
     </application>
 

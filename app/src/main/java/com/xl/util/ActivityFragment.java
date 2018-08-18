@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import com.xl.android.Activitys;
+
 import com.xl.android.R;
+import com.xl.android.activity.Activitys;
+import com.xl.android.handler.HandlerActivity;
+
 /**
  * Activity界面
  */
@@ -44,7 +47,7 @@ public class ActivityFragment extends Fragment implements View.OnClickListener{
             startActivity(new Intent(getActivity(), Activitys.class));
         }
         if(id == R.id.button2){
-
+            startActivity(new Intent(getActivity(), HandlerActivity.class));
         }
     }
 }
