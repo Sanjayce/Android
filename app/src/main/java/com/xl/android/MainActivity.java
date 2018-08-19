@@ -21,12 +21,16 @@ import android.widget.FrameLayout;
 import com.xl.util.ActivityFragment;
 import com.xl.util.BroadcastFragment;
 import com.xl.util.ContentProvderFragment;
+import com.xl.util.NetworkFragment;
+import com.xl.util.SensorFragment;
+import com.xl.util.ServersFragment;
+import com.xl.util.ViewFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private FragmentManager manager;
-    private  FragmentTransaction transaction;
-    private Fragment activity,broadcast,contentprovder,servers,view,sensor,network;
+    private FragmentTransaction transaction;
+    private Fragment activity, broadcast, contentprovder, servers, view, sensor, network;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,18 +41,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         manager = getFragmentManager();
         activity = new ActivityFragment();
         FragmentTransaction transactions = manager.beginTransaction();
-        transactions.add(R.id.fragment_frame_layout,activity).commit();
+        transactions.add(R.id.fragment_frame_layout, activity).commit();
     }
 
     private void hideFragment(FragmentTransaction transaction) {
-        if(activity !=null){
+
+        if (activity != null) {
             transaction.hide(activity);
         }
-        if(broadcast != null){
+        if (broadcast != null) {
             transaction.hide(broadcast);
         }
-        if(contentprovder!=null){
+        if (contentprovder != null) {
             transaction.hide(contentprovder);
+        }
+        if (servers != null) {
+            transaction.hide(servers);
+        }
+        if (view != null) {
+            transaction.hide(view);
+        }
+        if (sensor != null) {
+            transaction.hide(sensor);
+        }
+        if (network != null) {
+            transaction.hide(network);
         }
 
     }
@@ -108,36 +125,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.nav_gallery) {
             setTitle("BroadcastReceiver");
-            if(broadcast == null){
+            if (broadcast == null) {
                 broadcast = new BroadcastFragment();
-                transaction.add(R.id.fragment_frame_layout,broadcast);
-            }else {
+                transaction.add(R.id.fragment_frame_layout, broadcast);
+            } else {
                 transaction.show(broadcast);
             }
 
 
         } else if (id == R.id.nav_slideshow) {
             setTitle("ContentProvder");
-            if(contentprovder == null){
+            if (contentprovder == null) {
                 contentprovder = new ContentProvderFragment();
-                transaction.add(R.id.fragment_frame_layout,contentprovder);
-            }else {
+                transaction.add(R.id.fragment_frame_layout, contentprovder);
+            } else {
                 transaction.show(contentprovder);
             }
 
-
         } else if (id == R.id.nav_manage) {
             setTitle("Servers");
+            if (servers == null) {
+                servers = new ServersFragment();
+                transaction.add(R.id.fragment_frame_layout, servers);
+            } else {
+                transaction.show(servers);
+            }
 
         } else if (id == R.id.nav_share) {
             setTitle("View");
+            if (view == null) {
+                view = new ViewFragment();
+                transaction.add(R.id.fragment_frame_layout, view);
+            } else {
+                transaction.show(view);
+            }
 
         } else if (id == R.id.nav_send) {
             setTitle("Sensor");
-
-        }else if (id == R.id.nav_net) {
+            if (sensor == null) {
+                sensor = new SensorFragment();
+                transaction.add(R.id.fragment_frame_layout, sensor);
+            } else {
+                transaction.show(sensor);
+            }
+        } else if (id == R.id.nav_net) {
             setTitle("Network");
-
+            if (network == null) {
+                network = new NetworkFragment();
+                transaction.add(R.id.fragment_frame_layout, network);
+            } else {
+                transaction.show(network);
+            }
         }
 
         transaction.commit();
