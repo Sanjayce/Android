@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -72,6 +75,10 @@
         <activity android:name=".content.SharedPreferencesActivity"/>
         <activity android:name=".content.SQLiteDatabases"/>
         <activity android:name=".content.SQLites"/>
+
+        //系统服务
+        <service android:name=".server.MyStartServer"/>
+        <service android:name=".server.MyBindServer"/>
     </application>
 
 </manifest>

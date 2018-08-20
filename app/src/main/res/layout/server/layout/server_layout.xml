@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     android:orientation="vertical">
 
     <TextView
@@ -13,13 +14,16 @@
         android:id="@+id/start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_button"
         android:onClick="doClick"
         android:text="Start Service" />
 
     <Button
+        android:layout_marginTop="5dp"
         android:id="@+id/stop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_button"
         android:onClick="doClick"
         android:text="Stop Service" />
 
@@ -33,13 +37,16 @@
         android:id="@+id/bind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_button"
         android:onClick="doClick"
         android:text="bind Service" />
 
     <Button
+        android:layout_marginTop="5dp"
         android:id="@+id/unbind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_button"
         android:onClick="doClick"
         android:text="unbind Service" />
 
@@ -58,7 +65,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="doClick"
+            android:background="@drawable/ic_button"
             android:text="play" />
 
         <Button
@@ -66,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="doClick"
+            android:background="@drawable/ic_button"
             android:text="puse" />
 
         <Button
@@ -74,15 +81,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="doClick"
-            android:text="privet" />
+            android:background="@drawable/ic_button"
+            android:text="proviou" />
 
         <Button
             android:id="@+id/next"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="doClick"
+            android:background="@drawable/ic_button"
             android:text="next" />
     </LinearLayout>
 
@@ -99,24 +106,27 @@
         android:text="" />
 
     <Button
+        android:layout_marginTop="5dp"
         android:id="@+id/network"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="doClick"
+        android:background="@drawable/ic_button"
         android:text="Network" />
 
     <Button
+        android:layout_marginTop="5dp"
         android:id="@+id/wifi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="doClick"
+        android:background="@drawable/ic_button"
         android:text="WIFI" />
 
     <Button
+        android:layout_marginTop="5dp"
         android:id="@+id/voice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="doClick"
-        android:text="Vol" />
+        android:background="@drawable/ic_button"
+        android:text="Voice" />
 
 </LinearLayout>
