@@ -18,7 +18,7 @@
         </menu>
     </item>
 
-    <item android:title="UI与传感器">
+    <item android:title="UI|传感器|网络通讯">
         <menu>
             <item
                 android:id="@+id/nav_share"
@@ -26,11 +26,6 @@
             <item
                 android:id="@+id/nav_send"
                 android:title="Sensor" />
-        </menu>
-    </item>
-
-    <item android:title="网络通讯">
-        <menu>
             <item
                 android:id="@+id/nav_net"
                 android:title="Network" />

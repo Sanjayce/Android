@@ -55,7 +55,6 @@
         <activity android:name=".handler.HandlerFourActivity" />
         <activity android:name=".handler.HandlerFiveActivity" />
         //广播接收与发送
-        <activity android:name=".broadcast.BroadcastActivity" />
 
         <receiver android:name=".broadcast.BCR1" />
         <receiver android:name=".broadcast.BCR2" />
