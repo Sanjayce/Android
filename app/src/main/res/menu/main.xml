@@ -4,6 +4,37 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_manage"
         android:title="settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_share"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_share"
+        android:title="share"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_send"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_send"
+        android:title="send"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_gallery"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_gallery"
+        android:title="gallery"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_camera"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_camera"
+        android:title="camera"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_slideshow"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu_slideshow"
+        android:title="slideshow"
+        app:showAsAction="never"/>
 </menu>

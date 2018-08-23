@@ -12,6 +12,7 @@ import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
 import com.xl.android.R;
+import com.xl.android.view.AnimationsActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,10 +20,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *  BroadCast界面
+ * BroadCast界面
  */
 
-public class ViewFragment extends Fragment implements AdapterView.OnItemClickListener{
+public class ViewFragment extends Fragment implements AdapterView.OnItemClickListener {
 
 
     private GridView grid;
@@ -30,12 +31,11 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
     private List<Map<String, Object>> datalist;
 
     // 设置数据源
-    private int[] icon = { R.mipmap.ic_launcher };
-    private String[] str = {"ListView", "Data/Time", "Spinner",
-            "ProgressBar", "LognLayout", "Muil/Auto","Fragment", "ViewPager", "ViewFlipper", "ScrollView",
-            "Gallery/ISW", "SeekBar","ToastMessage", "AlertDialog", "Notification",
-            "OptionsMenu", "ContextMenu", "SubMenu", "Animation", "Animator",
-            "SlidingMenu", "ToolBar", "SurfaceView", "DrawerLayout","ExpandableListView","RecyclerView"};
+    private int[] icon = {R.mipmap.ic_launcher};
+    private String[] str = {"ListView", "Data/Time", "Spinner","Animations",
+            "ProgressBar", "LognLayout", "Muil/Auto", "Fragment", "ViewPager", "ViewFlipper", "ScrollView",
+            "Gallery/ISW", "SeekBar", "ToastMessage", "AlertDialog", "Notification","OptionsMenu", "ContextSubMenu",
+            "SlidingMenu", "ToolBar", "SurfaceView", "DrawerLayout", "ExpandableListView", "RecyclerView"};
 
     public ViewFragment() {
 
@@ -45,7 +45,7 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.view_layout,container,false);
+        View view = inflater.inflate(R.layout.view_layout, container, false);
         init(view);
         return view;
     }
@@ -58,8 +58,8 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
                 getActivity().getApplication().getApplicationContext(),
                 getData(),
                 R.layout.simple_adapter,
-                new String[] { "imageView", "textView" },
-                new int[] {R.id.imageView, R.id.textView });
+                new String[]{"imageView", "textView"},
+                new int[]{R.id.imageView, R.id.textView});
         grid.setAdapter(simplea);
         grid.setOnItemClickListener(this);
     }
@@ -76,36 +76,16 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        /**Intent[] activity = {
-                new Intent(getActivity(), ListViews.class),
-                new Intent(getActivity(), DataTimePinkers.class),
-                new Intent(getActivity(), ProgassBars.class),
-                new Intent(getActivity(), Fragments.class),
-                new Intent(getActivity(), ViewPagers.class),
-                new Intent(getActivity(), ViewFlippers.class),
-                new Intent(getActivity(), ScorllViews.class),
-                new Intent(getActivity(), GalleryImageSwitcher.class),
-                new Intent(getActivity(), SeekBars.class),
-                new Intent(getActivity(), Toasts.class),
-                new Intent(getActivity(), AlertDialogs.class),
-                new Intent(getActivity(), Notificetions.class),
-                new Intent(getActivity(), OptionsMenus.class),
-                new Intent(getActivity(), ContextMenus.class),
-                new Intent(getActivity(), SubMenus.class),
-                new Intent(getActivity(), Animations.class),
-                new Intent(getActivity(), Animators.class),
-                new Intent(getActivity(), SlidingMenus.class),
-                new Intent(getActivity(), ToolBarActivity.class),
-                new Intent(getActivity(), SurfaceActivity.class),
-                new Intent(getActivity(), DrawerActivity.class),
-                new Intent(getActivity(), ExpandListViews.class),
-                new Intent(getActivity(), RecyclerViews.class)};
 
-        for (int j = 0; j < activity.length; j++) {
-            if (i == j) {
-                startActivity(activity[j]);
-            }
-        }
-         */
+        //Intent[] activity = {};
+
+        startActivity(new Intent(getActivity(), AnimationsActivity.class));
+
+        //for (int j = 0; j < activity.length; j++) {
+        //    if (i == j) {
+         //       startActivity(activity[j]);
+
+        //    }
+        //}
     }
 }

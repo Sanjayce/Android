@@ -47,6 +47,9 @@
                 <action android:name="com.example.activity.intent.ThreeActivity" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.AnimationsActivity"/>
+
+
         //handler页面
         <activity android:name=".handler.HandlerActivity" />
         <activity android:name=".handler.HandlerOneActivity" />
