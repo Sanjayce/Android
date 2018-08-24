@@ -5,3 +5,4 @@
 三：安卓传感器的使用
 四：安卓网络基础,HTTP,Soket,xml/json解析,HttpClinet,HttpURLConncetion
 五：安卓软件数据库SQLiet,File
+六：安卓控件动画，菜单，消息，对媒体
