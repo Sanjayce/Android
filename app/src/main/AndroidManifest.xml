@@ -48,6 +48,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.AnimationsActivity"/>
+        <activity android:name=".view.MediaPlayerActivity"/>
 
 
         //handler页面

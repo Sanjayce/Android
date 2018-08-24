@@ -13,6 +13,7 @@ import android.widget.SimpleAdapter;
 
 import com.xl.android.R;
 import com.xl.android.view.AnimationsActivity;
+import com.xl.android.view.MediaPlayerActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,9 +33,9 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
 
     // 设置数据源
     private int[] icon = {R.mipmap.ic_launcher};
-    private String[] str = {"ListView", "Data/Time", "Spinner","Animations",
+    private String[] str = {"Animations", "MediaPlayer", "ListView", "Data/Time", "Spinner",
             "ProgressBar", "LognLayout", "Muil/Auto", "Fragment", "ViewPager", "ViewFlipper", "ScrollView",
-            "Gallery/ISW", "SeekBar", "ToastMessage", "AlertDialog", "Notification","OptionsMenu", "ContextSubMenu",
+            "Gallery/ISW", "SeekBar", "ToastMessage", "AlertDialog", "Notification", "OptionsMenu", "ContextSubMenu",
             "SlidingMenu", "ToolBar", "SurfaceView", "DrawerLayout", "ExpandableListView", "RecyclerView"};
 
     public ViewFragment() {
@@ -77,15 +78,16 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-        //Intent[] activity = {};
+        Intent[] activity = {
+                new Intent(getActivity(), AnimationsActivity.class),
+                new Intent(getActivity(), MediaPlayerActivity.class)
+        };
 
-        startActivity(new Intent(getActivity(), AnimationsActivity.class));
+        for (int j = 0; j < activity.length; j++) {
+            if (i == j) {
+                startActivity(activity[j]);
 
-        //for (int j = 0; j < activity.length; j++) {
-        //    if (i == j) {
-         //       startActivity(activity[j]);
-
-        //    }
-        //}
+            }
+        }
     }
 }
