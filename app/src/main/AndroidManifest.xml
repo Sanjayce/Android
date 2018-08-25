@@ -10,6 +10,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 
     <application
         android:allowBackup="true"
@@ -49,6 +51,9 @@
         </activity>
         <activity android:name=".view.AnimationsActivity"/>
         <activity android:name=".view.MediaPlayerActivity"/>
+        <activity android:name=".network.HttpActivity"/>
+        <activity android:name=".network.XmlAndJsonActivity"/>
+        <activity android:name=".network.WebActivity"/>
 
 
         //handler页面

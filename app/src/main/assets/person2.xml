@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persons>
+    <person id="1">
+        <name>DOM解析</name>
+    </person>
+    <person id="2">
+        <name>XML2</name>
+    </person>
+</persons>

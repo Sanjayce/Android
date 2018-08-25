@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/load_pic"
+        android:title="加载图片" />
+    <item
+        android:id="@+id/get_html"
+        android:title="获取网址html" />
+    <item
+        android:id="@+id/html_to_web"
+        android:title="根据html加载网址" />
+</menu>
