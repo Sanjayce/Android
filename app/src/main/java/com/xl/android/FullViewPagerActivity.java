@@ -1,5 +1,6 @@
 package com.xl.android;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -56,7 +57,6 @@ public class FullViewPagerActivity extends AppCompatActivity implements ViewPage
                 textView3.setText("3");
                 break;
             case 3:
-                textView4.setText("4");
                 timeUI();
                 break;
         }
@@ -65,8 +65,6 @@ public class FullViewPagerActivity extends AppCompatActivity implements ViewPage
     @Override
     public void onPageScrollStateChanged(int state) {
     }
-
-
 
 
     private void initSubView() {
@@ -87,19 +85,27 @@ public class FullViewPagerActivity extends AppCompatActivity implements ViewPage
         mlist.add(view4);
     }
 
-    private void timeUI(){
-        mTimer = new Timer();
-        mTimerTask = new TimerTask() {
+    private void timeUI() {
+        ValueAnimator animator = ValueAnimator.ofInt(4, 0);//生产0到100的数值
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
-            public void run() {
-                updateUI();
+            public void onAnimationUpdate(ValueAnimator animator) {
+                //通过回掉值animator，将ValueAnimator产生的数值付给value
+                Integer value = (Integer) animator.getAnimatedValue();
+                String str = String.valueOf(value);
+                textView4.setText(str);
+                if (str.equals("0")){
+                    updateUI();
+                }
             }
-        };
-        mTimer.schedule(mTimerTask,2000);
+        });
+        animator.setDuration(4000);
+        animator.start();
     }
 
 
     private void updateUI() {
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
