@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.xl.android.R;
+import com.xl.android.network.AsycnTaskActivity;
 import com.xl.android.network.HttpActivity;
+import com.xl.android.network.LoadNetWorkActivity;
+import com.xl.android.network.TcpAndSocketActivity;
 import com.xl.android.network.WebActivity;
 import com.xl.android.network.XmlAndJsonActivity;
 
@@ -41,7 +45,7 @@ public class NetworkFragment extends Fragment  implements View.OnClickListener{
                 startActivity(new Intent(getActivity(), HttpActivity.class));
                 break;
             case R.id.button6:
-
+                Toast.makeText(getActivity().getApplicationContext(),"此功能暂未开放!",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button7:
                 startActivity(new Intent(getActivity(), XmlAndJsonActivity.class));
@@ -50,13 +54,13 @@ public class NetworkFragment extends Fragment  implements View.OnClickListener{
                 startActivity(new Intent(getActivity(), WebActivity.class));
                 break;
             case R.id.button9:
-
+                startActivity(new Intent(getActivity(), AsycnTaskActivity.class));
                 break;
             case R.id.button10:
-
+                startActivity(new Intent(getActivity(), LoadNetWorkActivity.class));
                 break;
             case R.id.button11:
-
+                startActivity(new Intent(getActivity(), TcpAndSocketActivity.class));
                 break;
         }
     }

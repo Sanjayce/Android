@@ -54,6 +54,9 @@
         <activity android:name=".network.HttpActivity"/>
         <activity android:name=".network.XmlAndJsonActivity"/>
         <activity android:name=".network.WebActivity"/>
+        <activity android:name=".network.AsycnTaskActivity"/>
+        <activity android:name=".network.TcpAndSocketActivity"/>
+        <activity android:name=".network.LoadNetWorkActivity"/>
 
 
         //handler页面
