@@ -14,6 +14,7 @@ import android.widget.SimpleAdapter;
 import com.xl.android.R;
 import com.xl.android.view.AnimationsActivity;
 import com.xl.android.view.MediaPlayerActivity;
+import com.xl.android.view.SurfaceViewActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,10 +34,15 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
 
     // 设置数据源
     private int[] icon = {R.mipmap.ic_launcher};
-    private String[] str = {"Animations", "MediaPlayer", "ListView", "Data/Time", "Spinner",
-            "ProgressBar", "LognLayout", "Muil/Auto", "Fragment", "ViewPager", "ViewFlipper", "ScrollView",
-            "Gallery/ISW", "SeekBar", "ToastMessage", "AlertDialog", "Notification", "OptionsMenu", "ContextSubMenu",
-            "SlidingMenu", "ToolBar", "SurfaceView", "DrawerLayout", "ExpandableListView", "RecyclerView"};
+    private String[] str = {
+            "Animations", "MediaPlayer",
+            "SurfaceView","RecyclerView","ScrollView",
+            "Teibctr", "Muil/Auto", "Spinner",
+            "Data/Time","ProgressBar", "SeekBar",
+            "Fragment", "ViewPager", "ViewFlipper",
+            "ToolBar","ToastMessage", "AlertDialog", "Notification",
+            "OptionsMenu", "ContextMenu","SlidingMenu",
+            "ListView", "ExpandableLV"};
 
     public ViewFragment() {
 
@@ -80,7 +86,8 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
 
         Intent[] activity = {
                 new Intent(getActivity(), AnimationsActivity.class),
-                new Intent(getActivity(), MediaPlayerActivity.class)
+                new Intent(getActivity(), MediaPlayerActivity.class),
+                new Intent(getActivity(), SurfaceViewActivity.class)
         };
 
         for (int j = 0; j < activity.length; j++) {

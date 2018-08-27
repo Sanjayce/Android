@@ -57,6 +57,7 @@
         <activity android:name=".network.AsycnTaskActivity"/>
         <activity android:name=".network.TcpAndSocketActivity"/>
         <activity android:name=".network.LoadNetWorkActivity"/>
+        <activity android:name=".view.SurfaceViewActivity"/>
 
 
         //handler页面

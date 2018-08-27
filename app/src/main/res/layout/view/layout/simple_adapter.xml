@@ -17,8 +17,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center"
-        android:singleLine="false"
-        android:textColor="#ffffff"
-        android:text="textview"/>
+        android:singleLine="true"
+        android:textColor="#ffffff"/>
 
 </LinearLayout>
