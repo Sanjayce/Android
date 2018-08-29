@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //Android 6.0 及以上使用HttpClient
         android { useLibrary 'org.apache.http.legacy'}
     }
     buildTypes {
@@ -18,6 +19,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //layout布局分类
     sourceSets {
         main {
             res.srcDirs =
@@ -43,6 +45,11 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    //第三方jar包引用
+    compile files('libs/android-support-v7-recyclerview.jar')
+    compile files('libs/RecyclerAdapter.jar')
+    compile files('libs/slidingmenu.jar')
+    compile files('libs/SwitchLayout1.0.jar')
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:support-v4:26.+'
     compile 'com.android.support:design:26.+'

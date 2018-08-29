@@ -16,7 +16,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Android"
+        android:label="Android学习宝典"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -58,6 +58,7 @@
         <activity android:name=".network.TcpAndSocketActivity"/>
         <activity android:name=".network.LoadNetWorkActivity"/>
         <activity android:name=".view.SurfaceViewActivity"/>
+        <activity android:name=".view.RecyclerViewActivity"/>
 
 
         //handler页面

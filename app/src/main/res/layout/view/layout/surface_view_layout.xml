@@ -1,15 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="画笔：图片混排/颜色矩阵" />
 
     <com.xl.android.view.CircleImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/img_meizi"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
         android:src="@mipmap/pic"
-        app:Radius="300dp"
-        app:type="round"
-        android:layout_alignParentBottom="true" />
+        app:Radius="30dp"
+        app:type="round" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="色调    :"
+        android:textSize="18sp" />
+
+    <SeekBar
+        android:id="@+id/sb_hue"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="饱和度:"
+        android:textSize="18sp"/>
+
+    <SeekBar
+        android:id="@+id/sb_saturation"
+        android:layout_width="match_parent"
+        android:layout_height="32dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="亮度    :"
+        android:textSize="18sp" />
+
+    <SeekBar
+        android:id="@+id/sb_lum"
+        android:layout_width="match_parent"
+        android:layout_height="32dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="光照    :"
+        android:textSize="18sp" />
+
+    <SeekBar
+        android:id="@+id/sb_mul_add"
+        android:layout_width="match_parent"
+        android:layout_height="32dp" />
+
+</LinearLayout>

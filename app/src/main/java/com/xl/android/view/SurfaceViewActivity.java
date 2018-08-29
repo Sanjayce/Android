@@ -7,11 +7,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.LightingColorFilter;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Xfermode;
 import android.graphics.drawable.Drawable;
@@ -19,11 +21,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.xl.android.R;
@@ -34,26 +36,146 @@ import java.lang.ref.WeakReference;
  * SurfaceView 自定义View -->绘图工具类 Canvas(画布)，Paint(画笔)，Path(路径)
  */
 
-public class SurfaceViewActivity extends AppCompatActivity {
+public class SurfaceViewActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener{
+
+    private CircleImageView img_meizi;
+    private SeekBar sb_hue;
+    private SeekBar sb_saturation;
+    private SeekBar sb_lum;
+    private SeekBar sb_mul_add;
+    private final static int MAX_VALUE = 255;
+    private final static int MID_VALUE = 127;
+    private float mHue = 0.0f;
+    private float mStauration = 1.0f;
+    private float mLum = 1.0f;
+    private int mul = 0;
+    private int add = 0;
+    private Bitmap mBitmap;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            setContentView(R.layout.surface_view_layout);
+            setTitle("SurfaceView:Canvas/Paint/Path");
+            mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.pic);
+            bindViews();
+        }
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
             setContentView(new MyView(this));
             setTitle("View:Canvas/Paint/Path");
         }
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-            setContentView(R.layout.surface_view_layout);
-            setTitle("SurfaceView:Canvas/Paint/Path");
+    }
 
-        }
+    private void bindViews() {
+        img_meizi = (CircleImageView) findViewById(R.id.img_meizi);
+        sb_hue = (SeekBar) findViewById(R.id.sb_hue);
+        sb_saturation = (SeekBar) findViewById(R.id.sb_saturation);
+        sb_lum = (SeekBar) findViewById(R.id.sb_lum);
+        sb_mul_add = (SeekBar) findViewById(R.id.sb_mul_add);
+
+        img_meizi.setImageBitmap(mBitmap);
+        sb_hue.setMax(MAX_VALUE);
+        sb_hue.setProgress(MID_VALUE);
+        sb_saturation.setMax(MAX_VALUE);
+        sb_saturation.setProgress(MID_VALUE);
+        sb_lum.setMax(MAX_VALUE);
+        sb_lum.setProgress(MID_VALUE);
+        sb_mul_add.setMax(MAX_VALUE);
+        sb_mul_add.setProgress(0);
+
+        sb_hue.setOnSeekBarChangeListener(this);
+        sb_saturation.setOnSeekBarChangeListener(this);
+        sb_lum.setOnSeekBarChangeListener(this);
+
+    }
+
+    /**
+     * 该方法用来处理图像，根据光照来调节
+     * @param bp 图片
+     * @param mul
+     * @param add
+     * @return Bitmap
+     */
+    private Bitmap ProcessImage(Bitmap bp,int mul,int add){
+        Bitmap bitmap = Bitmap.createBitmap(bp.getWidth(),bp.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColorFilter(new LightingColorFilter(mul,add));
+        canvas.drawBitmap(bp,0,0,paint);
+        return bitmap;
+    }
+
+    /**
+     * 该方法用来处理图像，根据色调，饱和度，亮度来调节
+     * @param bm:要处理的图像
+     * @param hue:色调
+     * @param saturation:饱和度
+     * @param lum:亮度
+     * @return Bitmap
+     */
+    private Bitmap handleImageEffect(Bitmap bm, float hue, float saturation, float lum) {
+        Bitmap bmp = Bitmap.createBitmap(bm.getWidth(), bm.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bmp);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+        //颜色矩阵hue:色调
+        ColorMatrix hueMatrix = new ColorMatrix();
+        hueMatrix.setRotate(0, hue);    //0代表R，红色
+        hueMatrix.setRotate(1, hue);    //1代表G，绿色
+        hueMatrix.setRotate(2, hue);    //2代表B，蓝色
+        //颜色矩阵saturation:饱和度
+        ColorMatrix saturationMatrix = new ColorMatrix();
+        saturationMatrix.setSaturation(saturation);
+        //颜色矩阵lum:亮度
+        ColorMatrix lumMatrix = new ColorMatrix();
+        lumMatrix.setScale(lum, lum, lum, 1);
+        //设置矩阵属性
+        ColorMatrix imageMatrix = new ColorMatrix();
+        imageMatrix.postConcat(hueMatrix);
+        imageMatrix.postConcat(saturationMatrix);
+        imageMatrix.postConcat(lumMatrix);
+
+        paint.setColorFilter(new ColorMatrixColorFilter(imageMatrix));
+        canvas.drawBitmap(bm, 0, 0, paint);
+
+        return bmp;
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        switch (seekBar.getId()) {
+            case R.id.sb_hue:
+                mHue = (progress - MID_VALUE) * 1.0F / MID_VALUE * 180;
+                break;
+            case R.id.sb_saturation:
+                mStauration = progress * 1.0F / MID_VALUE;
+                break;
+            case R.id.sb_lum:
+                mLum = progress * 1.0F / MID_VALUE;
+                break;
+            case R.id.sb_mul_add:
+                mul = progress * -1;
+                add = progress;
+                break;
+        }
+        if(seekBar.getId() == R.id.sb_mul_add){
+            img_meizi.setImageBitmap(ProcessImage(mBitmap,mul,add));
+        }
+        img_meizi.setImageBitmap(handleImageEffect(mBitmap, mHue, mStauration, mLum));
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {}
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {}
 }
 
 /**
@@ -319,3 +441,4 @@ class CircleImageView extends  android.support.v7.widget.AppCompatImageView {
         return bitmap;
     }
 }
+
