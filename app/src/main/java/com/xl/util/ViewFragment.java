@@ -15,6 +15,7 @@ import com.xl.android.R;
 import com.xl.android.view.AnimationsActivity;
 import com.xl.android.view.MediaPlayerActivity;
 import com.xl.android.view.RecyclerViewActivity;
+import com.xl.android.view.SimpleUIActivity;
 import com.xl.android.view.SurfaceViewActivity;
 
 import java.util.ArrayList;
@@ -28,9 +29,6 @@ import java.util.Map;
 
 public class ViewFragment extends Fragment implements AdapterView.OnItemClickListener {
 
-
-    private GridView grid;
-    private SimpleAdapter simplea;
     private List<Map<String, Object>> datalist;
 
     // 设置数据源
@@ -38,10 +36,11 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
     private String[] str = {
             "Animations", "MediaPlayer",
             "SurfaceView","RecyclerView",
-            "Teibctr", "MASpinner",
-            "Data/Time","ProgressBar", "SeekBar",
+            "SimpleUI", "Data/Time",
+            "ProgressBar", "SeekBar",
             "Fragment", "ViewPager", "ViewFlipper",
-            "ToolBar","Toast", "AlertDialog", "Notification",
+            "ToolBar","TitleBar",
+            "Toast", "AlertDialog", "Notification",
             "ContextMenu","SlidingMenu",
             "ListView", "ExpandableLV"};
 
@@ -60,15 +59,15 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
 
     private void init(View view) {
 
-        grid = view.findViewById(R.id.view_layout);
+        GridView grid = view.findViewById(R.id.view_layout);
         datalist = new ArrayList<>();
-        simplea = new SimpleAdapter(
+        SimpleAdapter simpleadapter= new SimpleAdapter(
                 getActivity().getApplication().getApplicationContext(),
                 getData(),
                 R.layout.simple_adapter,
                 new String[]{"imageView", "textView"},
                 new int[]{R.id.imageView, R.id.textView});
-        grid.setAdapter(simplea);
+        grid.setAdapter(simpleadapter);
         grid.setOnItemClickListener(this);
     }
 
@@ -89,7 +88,8 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
                 new Intent(getActivity(), AnimationsActivity.class),
                 new Intent(getActivity(), MediaPlayerActivity.class),
                 new Intent(getActivity(), SurfaceViewActivity.class),
-                new Intent(getActivity(), RecyclerViewActivity.class)
+                new Intent(getActivity(), RecyclerViewActivity.class),
+                new Intent(getActivity(), SimpleUIActivity.class)
         };
 
         for (int j = 0; j < activity.length; j++) {

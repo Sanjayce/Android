@@ -59,6 +59,7 @@
         <activity android:name=".network.LoadNetWorkActivity"/>
         <activity android:name=".view.SurfaceViewActivity"/>
         <activity android:name=".view.RecyclerViewActivity"/>
+        <activity android:name=".view.SimpleUIActivity"/>
 
 
         //handler页面
@@ -84,7 +85,9 @@
         <activity android:name=".content.AndroidSDFile"/>
         <activity android:name=".content.ContentProviders"/>
         <activity android:name=".content.ContentValue"/>
-        <activity android:name=".content.PreferenceActivitys"/>
+        <activity
+            android:name=".content.PreferenceActivitys"
+            android:theme="@android:style/Theme.Material.Light"/>
         <activity android:name=".content.SharedPreferencesActivity"/>
         <activity android:name=".content.SQLiteDatabases"/>
         <activity android:name=".content.SQLites"/>

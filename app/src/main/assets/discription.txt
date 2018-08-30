@@ -1,0 +1,7 @@
+关于安卓开发的基础知识(API21及以上)
+一：安卓四大组件Activity,BroadcastReceiver,ContentProvider,Server(Intent);
+二：安卓UI组件与layout常用5大布局,以及UI更新Handler的5种方式;
+三：安卓传感器的使用 Sensor;
+四：安卓网络基础,HTTP,Socket,xml/json解析,HttpClient,HttpURLConnection;
+五：安卓软件数据库SQLet,File,ContentProvider;
+六：安卓控件动画，菜单，消息，对媒体.

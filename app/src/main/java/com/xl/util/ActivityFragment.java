@@ -23,7 +23,6 @@ import com.xl.android.handler.HandlerActivity;
 public class ActivityFragment extends Fragment implements View.OnClickListener{
 
     private Button btn1,btn2;
-    private TextView url;
 
     @Nullable
     @Override
@@ -33,9 +32,6 @@ public class ActivityFragment extends Fragment implements View.OnClickListener{
         btn2 = view.findViewById(R.id.button2);
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
-        url = view.findViewById(R.id.text_view);
-        url.setAutoLinkMask(Linkify.ALL);
-        url.setMovementMethod(LinkMovementMethod.getInstance());
         return view;
     }
 

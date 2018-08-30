@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class SQLites extends Activity {
+public class SQLites extends AppCompatActivity {
 
 	private TextView mTextView;
 	private String sql = "create table if not exists datetb (id integer primary key autoincrement, name text not null , age integer not null , sex text not null )";
@@ -19,6 +20,7 @@ public class SQLites extends Activity {
 		super.onCreate(savedInstanceState);
 		mTextView = new TextView(this);
 		setContentView(mTextView);
+		setTitle("SQLite");
 		initData();
 	}
 

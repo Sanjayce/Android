@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     android:orientation="vertical" >
 
     <EditText
@@ -27,14 +28,7 @@
     <TextView
         android:id="@+id/shared_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="@string/read_text" />
-
-    <Button
-        android:id="@+id/preference_activity_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/preferenceactivity" />
 
 </LinearLayout>

@@ -14,10 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
 
+import com.xl.android.content.PreferenceActivitys;
 import com.xl.util.ActivityFragment;
 import com.xl.util.BroadcastFragment;
 import com.xl.util.ContentProvderFragment;
@@ -26,35 +24,38 @@ import com.xl.util.SensorFragment;
 import com.xl.util.ServersFragment;
 import com.xl.util.ViewFragment;
 
+import java.lang.reflect.Method;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private FragmentManager manager;
     private FragmentTransaction transaction;
-    private Fragment activity, broadcast, contentprovder, servers, view, sensor, network;
+    private Fragment mainFragment,activity, broadcastreceiver, contentprovider, servers, view, sensor, network;
     private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("Activity");
         initView();
         manager = getFragmentManager();
-        activity = new ActivityFragment();
+        mainFragment = new MainFragment();
         FragmentTransaction transactions = manager.beginTransaction();
-        transactions.add(R.id.fragment_frame_layout, activity).commit();
+        transactions.add(R.id.fragment_frame_layout, mainFragment).commit();
     }
 
     private void hideFragment(FragmentTransaction transaction) {
 
+        transaction.remove(mainFragment);
+
         if (activity != null) {
             transaction.hide(activity);
         }
-        if (broadcast != null) {
-            transaction.hide(broadcast);
+        if (broadcastreceiver != null) {
+            transaction.hide(broadcastreceiver);
         }
-        if (contentprovder != null) {
-            transaction.hide(contentprovder);
+        if (contentprovider != null) {
+            transaction.hide(contentprovider);
         }
         if (servers != null) {
             transaction.hide(servers);
@@ -87,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -97,8 +97,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        setIconsVisible(menu, true);
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    /**
+     * 解决menu不显示图标问题
+     * @param menu
+     * @param flag
+     */
+    private void setIconsVisible(Menu menu, boolean flag) {
+        //判断menu是否为空
+        if(menu != null) {
+            try {
+                //如果不为空,就反射拿到menu的setOptionalIconsVisible方法
+                Method method = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                //暴力访问该方法
+                method.setAccessible(true);
+                //调用该方法显示icon
+                method.invoke(menu, flag);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -106,8 +128,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         int id = item.getItemId();
 
+        //preference_activity
         if (id == R.id.action_settings) {
-            return true;
+            startActivity(new Intent(getApplicationContext(), PreferenceActivitys.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -122,25 +145,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         hideFragment(transaction);
         if (id == R.id.nav_camera) {
             setTitle("Activity");
+            if(activity == null){
+                activity = new ActivityFragment();
+                transaction.add(R.id.fragment_frame_layout,activity);
+            }
             transaction.show(activity);
 
         } else if (id == R.id.nav_gallery) {
             setTitle("BroadcastReceiver");
-            if (broadcast == null) {
-                broadcast = new BroadcastFragment();
-                transaction.add(R.id.fragment_frame_layout, broadcast);
+            if (broadcastreceiver == null) {
+                broadcastreceiver = new BroadcastFragment();
+                transaction.add(R.id.fragment_frame_layout, broadcastreceiver);
             } else {
-                transaction.show(broadcast);
+                transaction.show(broadcastreceiver);
             }
 
 
         } else if (id == R.id.nav_slideshow) {
-            setTitle("ContentProvder");
-            if (contentprovder == null) {
-                contentprovder = new ContentProvderFragment();
-                transaction.add(R.id.fragment_frame_layout, contentprovder);
+            setTitle("ContentProvider");
+            if (contentprovider == null) {
+                contentprovider = new ContentProvderFragment();
+                transaction.add(R.id.fragment_frame_layout, contentprovider);
             } else {
-                transaction.show(contentprovder);
+                transaction.show(contentprovider);
             }
 
         } else if (id == R.id.nav_manage) {
@@ -153,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
         } else if (id == R.id.nav_share) {
-            setTitle("View");
+            setTitle("ViewUI");
             if (view == null) {
                 view = new ViewFragment();
                 transaction.add(R.id.fragment_frame_layout, view);
@@ -180,8 +207,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         transaction.commit();
-
-        //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

@@ -2,15 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     android:orientation="vertical">
 
-    <GridView
-        android:id="@+id/view_layout"
+    <TextView
+        android:id="@+id/main_text"
+        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="3"
-        android:horizontalSpacing="5dp"
-        android:verticalSpacing="5dp">
-    </GridView>
+        android:text="@string/android_"
+        android:singleLine="false"
+        android:textColor="#000000"
+        android:textSize="16sp"/>
 
 </LinearLayout>

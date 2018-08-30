@@ -72,7 +72,7 @@ public class BroadcastFragment extends Fragment implements View.OnClickListener{
                 Intent intent3 = new Intent(BCR3.Action);
                 intent3.putExtra("msg", "异步广播");
                 //发送异步广播，已弃用
-                getActivity().sendStickyBroadcast(intent3);
+                //getActivity().sendStickyBroadcast(intent3);
                 Toast.makeText(getActivity().getApplicationContext(), "异步广播", Toast.LENGTH_SHORT).show();
 
                 break;

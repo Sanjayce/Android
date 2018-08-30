@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -23,7 +24,7 @@ import android.widget.Toast;
 import com.xl.android.R;
 
 
-public class SQLiteDatabases extends Activity {
+public class SQLiteDatabases extends AppCompatActivity {
 
 	private SimpleCursorAdapter mAdapter;
 	private ListView mView;
@@ -39,6 +40,7 @@ public class SQLiteDatabases extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sqllite_database);
+		setTitle("SQLiteDatabase");
 		helper = new SQLiteOpenHelp(getApplicationContext(), "dates.db",null,1);
 		dbread = helper.getReadableDatabase();
 		dbwrite = helper.getWritableDatabase();

@@ -22,14 +22,4 @@
         android:textColor="#000"
         android:text="Handler" />
 
-    <TextView
-        android:id="@+id/text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:autoLink="all"
-        android:text="www.baidu.com"
-        android:textSize="18sp"/>
-
 </LinearLayout>

@@ -5,9 +5,10 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class ContentValue extends Activity {
+public class ContentValue extends AppCompatActivity {
 	private TextView mTextView;
 	private String sql="create table if not exists date2tb (_id integer primary key autoincrement, name text not null , age integer not null , sex text not null )";
 
