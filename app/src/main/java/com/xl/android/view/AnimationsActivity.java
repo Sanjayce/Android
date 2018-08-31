@@ -137,14 +137,6 @@ public class AnimationsActivity extends AppCompatActivity implements View.OnClic
                 animatorcolse();
             }
         }
-        if (id == R.id.animator_a1) {
-            if (bool) {
-                animatorshow1();
-            } else {
-                animatorcolse1();
-            }
-        }
-
     }
 
     /**

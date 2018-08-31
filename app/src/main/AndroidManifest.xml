@@ -60,6 +60,9 @@
         <activity android:name=".view.SurfaceViewActivity"/>
         <activity android:name=".view.RecyclerViewActivity"/>
         <activity android:name=".view.SimpleUIActivity"/>
+        <activity android:name=".view.DataTimeActivity"/>
+        <activity android:name=".view.ProgressBarActivity"/>
+        <activity android:name=".view.SeekBarActivity"/>
 
 
         //handler页面

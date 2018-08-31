@@ -13,8 +13,11 @@ import android.widget.SimpleAdapter;
 
 import com.xl.android.R;
 import com.xl.android.view.AnimationsActivity;
+import com.xl.android.view.DataTimeActivity;
 import com.xl.android.view.MediaPlayerActivity;
+import com.xl.android.view.ProgressBarActivity;
 import com.xl.android.view.RecyclerViewActivity;
+import com.xl.android.view.SeekBarActivity;
 import com.xl.android.view.SimpleUIActivity;
 import com.xl.android.view.SurfaceViewActivity;
 
@@ -89,7 +92,10 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
                 new Intent(getActivity(), MediaPlayerActivity.class),
                 new Intent(getActivity(), SurfaceViewActivity.class),
                 new Intent(getActivity(), RecyclerViewActivity.class),
-                new Intent(getActivity(), SimpleUIActivity.class)
+                new Intent(getActivity(), SimpleUIActivity.class),
+                new Intent(getActivity(), DataTimeActivity.class),
+                new Intent(getActivity(), ProgressBarActivity.class),
+                new Intent(getActivity(), SeekBarActivity.class)
         };
 
         for (int j = 0; j < activity.length; j++) {

@@ -142,19 +142,15 @@ public class SimpleUIActivity extends AppCompatActivity implements CompoundButto
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         if (cbox1.isChecked()) {
             Toast.makeText(SimpleUIActivity.this, cbox1.getText().toString(), Toast.LENGTH_SHORT).show();
-            cbox1.setChecked(false);
         }
         if (cbox2.isChecked()) {
             Toast.makeText(SimpleUIActivity.this, cbox2.getText().toString(), Toast.LENGTH_SHORT).show();
-            cbox2.setChecked(false);
         }
         if (cbox3.isChecked()) {
             Toast.makeText(SimpleUIActivity.this, cbox3.getText().toString(), Toast.LENGTH_SHORT).show();
-            cbox3.setChecked(false);
         }
         if (cbox4.isChecked()) {
             Toast.makeText(SimpleUIActivity.this, cbox4.getText().toString(), Toast.LENGTH_SHORT).show();
-            cbox4.setChecked(false);
         }
     }
 }
