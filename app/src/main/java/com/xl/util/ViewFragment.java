@@ -14,12 +14,16 @@ import android.widget.SimpleAdapter;
 import com.xl.android.R;
 import com.xl.android.view.AnimationsActivity;
 import com.xl.android.view.DataTimeActivity;
+import com.xl.android.view.ExpanableListViewActivity;
+import com.xl.android.view.FragmentActivity;
+import com.xl.android.view.ListViewActivity;
 import com.xl.android.view.MediaPlayerActivity;
 import com.xl.android.view.ProgressBarActivity;
 import com.xl.android.view.RecyclerViewActivity;
 import com.xl.android.view.SeekBarActivity;
 import com.xl.android.view.SimpleUIActivity;
 import com.xl.android.view.SurfaceViewActivity;
+import com.xl.android.view.ViewPagerActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,10 +45,7 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
             "SurfaceView","RecyclerView",
             "SimpleUI", "Data/Time",
             "ProgressBar", "SeekBar",
-            "Fragment", "ViewPager", "ViewFlipper",
-            "ToolBar","TitleBar",
-            "Toast", "AlertDialog", "Notification",
-            "ContextMenu","SlidingMenu",
+            "Fragment", "ViewPager",
             "ListView", "ExpandableLV"};
 
     public ViewFragment() {
@@ -95,13 +96,16 @@ public class ViewFragment extends Fragment implements AdapterView.OnItemClickLis
                 new Intent(getActivity(), SimpleUIActivity.class),
                 new Intent(getActivity(), DataTimeActivity.class),
                 new Intent(getActivity(), ProgressBarActivity.class),
-                new Intent(getActivity(), SeekBarActivity.class)
+                new Intent(getActivity(), SeekBarActivity.class),
+                new Intent(getActivity(), FragmentActivity.class),
+                new Intent(getActivity(), ViewPagerActivity.class),
+                new Intent(getActivity(), ListViewActivity.class),
+                new Intent(getActivity(), ExpanableListViewActivity.class)
         };
 
         for (int j = 0; j < activity.length; j++) {
             if (i == j) {
                 startActivity(activity[j]);
-
             }
         }
     }

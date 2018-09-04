@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/item1"
+        android:title="复制" />
+    <item
+        android:id="@+id/item2"
+        android:title="粘贴" />
+
+    <group android:menuCategory="system">
+        <item
+            android:id="@+id/sub_item1"
+            android:title="删除" />
+        <item
+            android:id="@+id/sub_item2"
+            android:title="移除" />
+    </group>
+</menu>

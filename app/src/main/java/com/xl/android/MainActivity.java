@@ -3,6 +3,7 @@ package com.xl.android;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -86,13 +88,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         findViewById(R.id.fragment_frame_layout);
     }
 
+
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        }else{
+            AlertDialog.Builder builder = new  AlertDialog.Builder(this);
+            builder.setMessage("Are you sure to exit!");
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    System.exit(0);
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
         }
+
     }
 
     @Override
@@ -127,8 +146,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-
-        //preference_activity
         if (id == R.id.action_settings) {
             startActivity(new Intent(getApplicationContext(), PreferenceActivitys.class));
         }

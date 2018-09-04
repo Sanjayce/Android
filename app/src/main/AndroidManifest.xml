@@ -23,7 +23,8 @@
         //欢迎页
         <activity
             android:name=".FirstActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,11 +34,13 @@
         //导航页
         <activity
             android:name=".FullViewPagerActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         //主界面
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         //activity页面
         <activity android:name=".activity.Activitys" />
         <activity android:name=".activity.ScondeActivity" />
@@ -63,6 +66,10 @@
         <activity android:name=".view.DataTimeActivity"/>
         <activity android:name=".view.ProgressBarActivity"/>
         <activity android:name=".view.SeekBarActivity"/>
+        <activity android:name=".view.FragmentActivity"/>
+        <activity android:name=".view.ViewPagerActivity"/>
+        <activity android:name=".view.ListViewActivity"/>
+        <activity android:name=".view.ExpanableListViewActivity"/>
 
 
         //handler页面
